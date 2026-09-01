@@ -26,33 +26,18 @@ st.set_page_config(
     layout="wide",
 )
 
-# iOS home screen icon fix (Streamlit hardcodes its own apple-touch-icon,
-# so we use JS to remove theirs and inject ours)
+# Inject apple-touch-icon for iOS home screen
 if _icon_b64:
     st.markdown(
-        f"""
-        <script>
-            // Remove Streamlit's default apple-touch-icon
-            document.querySelectorAll('link[rel="apple-touch-icon"]').forEach(el => el.remove());
-            document.querySelectorAll('link[rel="mask-icon"]').forEach(el => el.remove());
-            document.querySelectorAll('link[rel="manifest"]').forEach(el => el.remove());
-
-            // Inject our own apple-touch-icon
-            const link = document.createElement('link');
-            link.rel = 'apple-touch-icon';
-            link.href = 'data:image/png;base64,{_icon_b64}';
-            document.head.appendChild(link);
-
-            const link180 = document.createElement('link');
-            link180.rel = 'apple-touch-icon';
-            link180.setAttribute('sizes', '180x180');
-            link180.href = 'data:image/png;base64,{_icon_b64}';
-            document.head.appendChild(link180);
-        </script>
-        """,
+        f'''
+        <link rel="apple-touch-icon" href="data:image/png;base64,{_icon_b64}">
+        <link rel="apple-touch-icon" sizes="180x180" href="data:image/png;base64,{_icon_b64}">
+        <link rel="icon" type="image/png" href="data:image/png;base64,{_icon_b64}">
+        ''',
         unsafe_allow_html=True,
     )
-    
+
+
 @st.cache_resource
 def load_pipeline():
     if not (DET_PATH.exists() and SEV_PATH.exists() and COST_PATH.exists()):
