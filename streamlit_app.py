@@ -13,7 +13,29 @@ DET_PATH = MODELS_DIR / "detection_best.pt"
 SEV_PATH = MODELS_DIR / "severity_best.pt"
 COST_PATH = MODELS_DIR / "cost_model.pkl"
 
-st.set_page_config(page_title="Vehicle Damage AI", page_icon="icon.png", layout="wide")
+import base64
+from pathlib import Path
+
+# Load icon as base64 for iOS home screen support
+_icon_path = Path(__file__).parent / "icon.png"
+_icon_b64 = base64.b64encode(_icon_path.read_bytes()).decode() if _icon_path.exists() else None
+
+st.set_page_config(
+    page_title="Vehicle Damage AI",
+    page_icon=str(_icon_path) if _icon_path.exists() else "🚗",
+    layout="wide",
+)
+
+# Inject apple-touch-icon for iOS home screen
+if _icon_b64:
+    st.markdown(
+        f'''
+        <link rel="apple-touch-icon" href="data:image/png;base64,{_icon_b64}">
+        <link rel="apple-touch-icon" sizes="180x180" href="data:image/png;base64,{_icon_b64}">
+        <link rel="icon" type="image/png" href="data:image/png;base64,{_icon_b64}">
+        ''',
+        unsafe_allow_html=True,
+    )
 
 
 @st.cache_resource
