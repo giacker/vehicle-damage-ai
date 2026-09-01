@@ -13,7 +13,7 @@ DET_PATH = MODELS_DIR / "detection_best.pt"
 SEV_PATH = MODELS_DIR / "severity_best.pt"
 COST_PATH = MODELS_DIR / "cost_model.pkl"
 
-st.set_page_config(page_title="Vehicle Damage AI", page_icon="🚗", layout="wide")
+st.set_page_config(page_title="Vehicle Damage AI", page_icon="icon.png", layout="wide")
 
 
 @st.cache_resource
