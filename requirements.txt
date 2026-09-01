@@ -1,0 +1,11 @@
+streamlit==1.59.0
+ultralytics==8.4.96
+torch
+torchvision
+opencv-python-headless==4.10.0.84
+scikit-learn
+xgboost
+pandas
+numpy
+joblib
+Pillow

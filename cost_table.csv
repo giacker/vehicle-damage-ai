@@ -1,0 +1,15 @@
+,minor,moderate,severe
+bonnet-dent,2500,8000,25000
+boot-dent,2500,8000,22000
+doorouter-dent,3000,10000,28000
+fender-dent,2500,9000,24000
+front-bumper-dent,3500,12000,35000
+quaterpanel-dent,3000,11000,30000
+rear-bumper-dent,3500,12000,32000
+roof-dent,4000,14000,45000
+Front-windscreen-damage,3000,12000,25000
+Rear-windscreen-Damage,2500,10000,20000
+Headlight-damage,4000,15000,35000
+Taillight-Damage,3000,10000,25000
+Sidemirror-Damage,1500,5000,12000
+Runningboard-Damage,2000,7000,18000

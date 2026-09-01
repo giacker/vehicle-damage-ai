@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+*.pyc
+data/
+runs/
+photo-*.jpg
+photo-*.avif
+yolov8*.pt
+yolo26n.pt
+.DS_Store
+Thumbs.db
+dataset_paths.json
+gpu_check.py
